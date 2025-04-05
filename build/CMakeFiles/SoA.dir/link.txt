@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/SoA.dir/tests/SoA.cc.o -o SoA  /usr/lib/x86_64-linux-gnu/librt.a 
