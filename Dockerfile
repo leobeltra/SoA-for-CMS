@@ -1,5 +1,8 @@
-# Use Ubuntu 24.04 as the base image
-FROM ubuntu:24.04
+# Use NVIDIA CUDA base image with Ubuntu 24.04
+FROM nvidia/cuda:12.8.1-devel-ubuntu24.04
+
+# Base: Ubuntu 24.04
+# FROM ubuntu:24.04
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -22,6 +25,9 @@ RUN git clone --branch v2.13.10 https://github.com/catchorg/Catch2.git
 
 # Set environment variable to use installed Alpaka
 # ENV CMAKE_PREFIX_PATH="/usr/local/cmake:$CMAKE_PREFIX_PATH"
+
+# Clone Eigen (header-only, no build)
+RUN git clone https://gitlab.com/libeigen/eigen.git
 
 # Print the CMAKE_PREFIX_PATH value
 # RUN echo "CMAKE_PREFIX_PATH is set to: $CMAKE_PREFIX_PATH"
