@@ -53,10 +53,9 @@ add_executable(CudaSoA ${TEST_CUDA})
 
 set_target_properties(CudaSoA PROPERTIES LINKER_LANGUAGE CUDA)
 
+target_compile_options(CudaSoA PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr>)
+
 target_include_directories(CudaSoA PRIVATE /opt/Catch2/single_include/catch2 /opt/eigen)
 
 target_link_libraries(CudaSoA PRIVATE Boost::boost alpaka::alpaka /opt/eigen)
 	
-
-
-
