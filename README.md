@@ -109,15 +109,6 @@ function of a `View` or `ConstView`. Every object contains the address of the fi
 of elements per column, and the stride for the Eigen columns. These are used to validate the columns size at run time 
 and to build a generic `View` as described in [View](#view).
 
-## ROOT serialization and de-serialization
-
-Layouts can be serialized and de-serialized with ROOT. In order to generate the ROOT dictionary, separate
-`clases_def.xml` and `classes.h` should be prepared. `classes.h` ensures the inclusion of the proper header files to
-get the definition of the serialized classes, and `classes_def.xml` needs to define the fixed list of members that
-ROOT should ignore, plus the list of all the columns. [An example is provided below.](#examples)
-
-Serialization of Eigen data is not yet supported.
-
 ## Template parameters
 
 The template shared by layouts and parameters are:
