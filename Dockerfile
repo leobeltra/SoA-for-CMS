@@ -6,6 +6,8 @@ FROM nvidia/cuda:12.8.1-devel-ubuntu24.04
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
+    clang-format \
+    vim \
     build-essential \
     cmake \
     git \
