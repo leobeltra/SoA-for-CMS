@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 find_package(Boost REQUIRED)
 
-
 find_package(CUDA REQUIRED)
 
 enable_language(CUDA)
@@ -16,8 +15,10 @@ add_subdirectory(/opt/Catch2 Catch2-build)
 
 add_subdirectory(/opt/eigen eigen-build)
 
-include_directories(include)
+set(BENCHMARK_ENABLE_TESTING OFF)
+add_subdirectory(/opt/benchmark benchmark-build)
 
+include_directories(include)
 
 file(GLOB TEST_SOURCES "tests/*.cc")
 
@@ -28,10 +29,10 @@ foreach(test_file ${TEST_SOURCES})
     add_executable(${test_name} ${test_file})
 
 
-    target_include_directories(${test_name} PRIVATE /opt/Catch2/single_include/catch2 /opt/eigen)
+    target_include_directories(${test_name} PRIVATE /opt/Catch2/single_include/catch2 /opt/eigen /opt/benchmark)
 
 
-    target_link_libraries(${test_name} PRIVATE Boost::boost alpaka::alpaka Catch2::Catch2)
+    target_link_libraries(${test_name} PRIVATE Boost::boost alpaka::alpaka Catch2::Catch2 benchmark::benchmark)
 endforeach()
 
 add_executable(CudaSoA ${TEST_CUDA})

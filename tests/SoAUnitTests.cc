@@ -16,6 +16,8 @@ GENERATE_SOA_LAYOUT(SimpleLayoutTemplate,
 // clang-format on
 
 using SimpleLayout = SimpleLayoutTemplate<>;
+using SimpleLayoutView = SimpleLayout::View;
+using SimpleLayoutConstView = SimpleLayout::ConstView;
 
 TEST_CASE("SoATemplate") {
   // number of elements

@@ -20,6 +20,8 @@ RUN git clone --branch v2.13.10 https://github.com/catchorg/Catch2.git
 
 RUN git clone https://gitlab.com/libeigen/eigen.git
 
+RUN git clone https://github.com/google/benchmark.git
+
 WORKDIR /workspace
 
 COPY . /workspace
